@@ -1,0 +1,11 @@
+# We start by telling Ansible what hosts this play will target
+- hosts: all
+  tasks:
+    # Each task has a human friendly name
+    - name: Ensure a file is present in home path
+      # Which Ansible Module we will be using
+      file:
+        # Configuration properties of the module
+        path: "{{ lookup('env','HOME') }}/hello_world"
+        state: touch
+ 
